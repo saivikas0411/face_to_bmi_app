@@ -1,0 +1,63 @@
+
+<style>
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+
+
+<body style="width: 100%; height:100%">
+<div style="width: 100%; height:100%;">
+    <div id="headerDiv" style="width: 100%; height:10%;">
+        <ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+    </div>
+    <div style="width: 50%; height:90%;float:left"   >
+        <h2>BMI from Face</h2>
+  <div class="centered" >
+  <img src="{{ url_for('static', filename='img/bgface.jpg') }}" alt="facial image">
+  </div>
+  </div>
+    
+    <div style="width: 50%; height:90%;float:right"  >
+        <form action="{{ url_for('predict') }}" method="post" enctype=multipart/form-data>
+  <label for="img">Select image:</label>
+  <input type="file" id="file" name="file" accept="image/*">
+  <label for="gen">Choose Gender:</label>
+  <select id="gen" name="gen">
+    <option value="1">Male</option>
+    <option value="0">Female</option>
+  </select>
+  <input type="submit">
+</form>
+<br>
+<br>
+{{predicted_bmi}}
+    </div>
+   
+</div>
+</body>

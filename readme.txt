@@ -1,0 +1,1 @@
+This application lets user to upload their facial image and will predict your BMI(approximated)
